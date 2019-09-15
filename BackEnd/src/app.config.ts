@@ -2,6 +2,7 @@ import {Application} from 'express';
 import Connected from './db.config';
 import bodyParser from 'body-parser';
 import graphqlHttp from 'express-graphql';
+import graphQlSchema from './graphQl/graphQlSchema';
 
 const AppConfig = (app:Application) =>{
     Connected.on('error', (err)=>{
@@ -15,10 +16,10 @@ const AppConfig = (app:Application) =>{
     Connected.on('open', (err)=>{
         console.log("DataBase's connected.\n" +
                      "You can start working successfully ...");
-        // app.use('/api',graphqlHttp({
-        //     schema:{},
-        //     graphiql:true
-        // }))             
+        app.use('/api',graphqlHttp({
+            schema:graphQlSchema,
+            graphiql:true
+        }))             
     });    
 }
 
