@@ -1,13 +1,12 @@
-import express ,{Application,Request,Response,NextFunction} from 'express';
+import express ,{Application} from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app : Application = express();
+const app:Application = express(),
+     http:any = require('http').Server(app),
+     port:number = 3333;
+     
 
-const add = (x : number , y : number)=>{
-    return x+y
-}
-
-app.get('/',(req:Request,res:Response)=>{
-    res.json(add(5,5))
+http.listen(process.env.port || port,()=>{
+    console.log("Server's running in port " + process.env.port || port);    
 })
-
-app.listen(5000,()=>{console.log('server running')});

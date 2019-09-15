@@ -1,1 +1,0 @@
-export const  forceRemoveService = (Model,id) => Model.destroy({where:id}) 
