@@ -1,13 +1,8 @@
-import {GraphQLSchema, GraphQLObjectType} from 'graphql';
+import {GraphQLSchema} from 'graphql';
+import queryType from './graphQlQuery';
 
-const queryType = new GraphQLObjectType({
-    name:"Query",
-    description:"sadssa",
-    fields:{
 
-    }
-}) ;
-const graphQlSchema = new GraphQLSchema ({
+const graphQlSchema : GraphQLSchema = new GraphQLSchema ({
     query: queryType
 });
 
