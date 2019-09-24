@@ -1,8 +1,8 @@
-import { Model } from 'mongoose';
+import { Model,Document } from 'mongoose';
 
 export default class Creation {
-    private model:any;
-    constructor (_model : Model<any>){
+    private model:Model<Document>;
+    constructor (_model : Model<Document>){
          this.model = _model;
     }
     set(data:Object){
