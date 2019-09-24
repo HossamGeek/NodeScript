@@ -1,3 +1,4 @@
+import { UserModel } from './schema';
 import { Document, Schema, Model, model} from "mongoose";
 import User from '../User/interface';
 
@@ -13,4 +14,6 @@ export const UserSchema: Schema = new Schema({
     lastName: String
 });
 
-export const User: Model<UserModel> = model<UserModel>("User", UserSchema);
+export const User: Model<Document> = model<Document>("User", UserSchema);
+
+
